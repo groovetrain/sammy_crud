@@ -77,7 +77,7 @@ function addCRUDRoutes(app, name, prefix, url_prefix) {
     var id = params['id'];
     $.ajax({
       type: "POST",
-      data: "_method=delete",
+      data: "_method=delete&" + app.authTokenName + "=" + encodeURIComponent( app.authTokenValue ),
       url: '/' + url_prefix + name + '/' + params['id'],
       complete: function(xhr, statusText) {
         if(xhr.status == 200)

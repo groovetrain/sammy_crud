@@ -24,6 +24,8 @@
   $(function() {
     var app = newSammyApp();
     addCRUDRoutes(app, '<%= plural %>');
+    app.authTokenName  = 'authenticity_token';
+    app.authTokenValue = <%= '<' + '%=' + 'form_authenticity_token.inspect' + '%' + '>' %>;
     app.run();
   });
 </script>

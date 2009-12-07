@@ -25,6 +25,8 @@
 :javascript
   $(function() {
     var app = newSammyApp();
-    addCRUDRoutes(app, '<%= plural %>');
+    addCRUDRoutes(app, 'users');
+    app.authTokenName  = 'authenticity_token';
+    app.authTokenValue = #{form_authenticity_token.inspect};
     app.run();
   });
